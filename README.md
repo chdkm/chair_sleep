@@ -116,4 +116,4 @@ MVPリリース時に作成しておきたいもの
 Figma：https://www.figma.com/file/aNBLcQ5vScCC4GWuGBa7gz/chair_sleep?type=design&node-id=0-1&mode=design&t=rIJoHCkASqtVKoCE-0
 
 ## ER図
-https://gyazo.com/f2bfcbb33a2a66fe549977996e9c06c8
+[![Image from Gyazo](https://i.gyazo.com/90e4200dee8577d5b416afb4d6d6765c.png)](https://gyazo.com/90e4200dee8577d5b416afb4d6d6765c)
