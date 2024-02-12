@@ -22,10 +22,18 @@ COPY Gemfile.lock /app/Gemfile.lock
 #bundle installを実行
 RUN bundle install
 
-#ローカルの現在のディレクトリをコンテナ内にコピー
-COPY . /app
+# Install yarn
+RUN curl -sL https://deb.nodesource.com/setup_18.x | bash - \
+  && wget --quiet -O - /tmp/pubkey.gpg https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
+  && echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list \
+  && apt-get update -qq \
+  && apt-get install -y nodejs yarn \
+  && apt-get install -y cron
 
-#後述のentrypoint.shを実行するための記述
+#ローカルの現在のディレクトリをコンテナ内にコピー
+COPY . /chair_sleep
+
+#entrypoint.shを実行するための記述
 COPY entrypoint.sh /usr/bin/
 RUN chmod +x /usr/bin/entrypoint.sh
 ENTRYPOINT ["entrypoint.sh"]

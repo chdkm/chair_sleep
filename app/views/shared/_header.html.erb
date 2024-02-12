@@ -5,8 +5,7 @@
     <% end %>
     <nav>
       <ul class="flex space-x-4">
-        <%= link_to "ログイン", login_path , class: "hover:text-gray-300" %>
-        <%= link_to "新規登録", new_user_path , class: "hover:text-gray-300" %>
+        <%= link_to "ログアウト", logout_path, class: "hover:text-gray-300", data: { turbo_method: :delete } %>
       </ul>
     </nav>
   </div>

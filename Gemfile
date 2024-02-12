@@ -30,6 +30,10 @@ gem "dotenv-rails"
 
 gem 'cssbundling-rails'
 
+gem 'jsbundling-rails'
+
+gem 'sorcery', github: 'sorcery/sorcery'
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
 
