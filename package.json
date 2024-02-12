@@ -1,4 +1,7 @@
 {
   "name": "app",
-  "private": "true"
+  "private": "true",
+  "devDependencies": {
+    "daisyui": "^4.6.2"
+  }
 }
