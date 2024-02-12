@@ -1,0 +1,12 @@
+<header class="bg-blue-300 text-white py-4">
+  <div class="container mx-auto flex items-center justify-between px-4">
+    <%= link_to root_path , class: "text-2xl font-bold" do %>
+      椅子寝
+    <% end %>
+    <nav>
+      <ul class="flex space-x-4">
+        <%= link_to "ログアウト", logout_path, class: "hover:text-gray-300", data: { turbo_method: :delete } %>
+      </ul>
+    </nav>
+  </div>
+</header>

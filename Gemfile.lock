@@ -1,3 +1,12 @@
+GIT
+  remote: https://github.com/sorcery/sorcery.git
+  revision: d9dc0bd80a3d5689398baea4489b14ed78e6c42d
+  specs:
+    sorcery (0.16.5)
+      bcrypt (~> 3.1)
+      oauth (>= 0.6)
+      oauth2 (~> 2.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -129,6 +138,8 @@ GEM
     jbuilder (2.11.5)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
+    jsbundling-rails (1.3.0)
+      railties (>= 6.0.0)
     jwt (2.7.1)
     loofah (2.22.0)
       crass (~> 1.0.2)
@@ -233,10 +244,6 @@ GEM
     snaky_hash (2.0.1)
       hashie
       version_gem (~> 1.1, >= 1.1.1)
-    sorcery (0.16.5)
-      bcrypt (~> 3.1)
-      oauth (>= 0.6)
-      oauth2 (~> 2.0)
     sprockets (4.2.1)
       concurrent-ruby (~> 1.0)
       rack (>= 2.2.4, < 4)
@@ -284,11 +291,12 @@ DEPENDENCIES
   dotenv-rails
   importmap-rails
   jbuilder
+  jsbundling-rails
   pg (~> 1.1)
   puma (>= 5.0)
   rails (~> 7.1.2)
   selenium-webdriver
-  sorcery
+  sorcery!
   sprockets-rails
   stimulus-rails
   tailwindcss-rails (~> 2.3)
