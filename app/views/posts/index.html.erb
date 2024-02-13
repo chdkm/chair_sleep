@@ -1,0 +1,30 @@
+<%# Add a container for the post index %>
+<div class="container mx-auto">
+  <%# Add a heading for the page %>
+  <h1 class="text-3xl font-bold mb-4">投稿一覧</h1>
+
+  <div class="flex justify-center items-center gap-8">
+    <%# Add the tag search form %>
+    <form class="items-center">
+      <input type="text" class="w-center rounded-l-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500" placeholder="タグ検索フォーム">
+      <button type="submit" class="px-4 py-2 bg-indigo-500 text-white rounded-r-md hover:bg-indigo-600">Search</button>
+    </form>
+    
+    <%# Add the new post button %>
+    <div>
+      <a href="/posts/new" class="px-4 py-2 bg-indigo-500 text-white rounded-md hover:bg-indigo-600">新規投稿</a>
+    </div>
+  </div>
+
+  <div class="grid grid-cols-3 gap-4">
+    <div class="col-12">
+      <div class="row">
+        <% if @posts.present? %>
+          <%= render @boards %>
+        <% else %>
+          <div class="mb-3">掲示板がありません</div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
