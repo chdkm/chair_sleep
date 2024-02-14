@@ -1,0 +1,11 @@
+<div class="grid grid-cols-3 gap-4">
+  <% @posts.each do |post| %>
+    <div class="p-4 bg-white shadow-md">
+      <%= image_tag "post_placeholder.png", class: "w-full" %>
+      <h2 class="text-xl font-bold"><%= link_to post.title , "#" %></h2>
+      <p><%= link_to post.user.name , "#" %></p>
+      <p><%= link_to post.content , "#" %></p>
+      <p class="text-gray-500"><%= post.created_at.strftime("%B %d, %Y") %></p>
+    </div>
+  <% end %>
+</div>
