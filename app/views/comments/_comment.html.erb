@@ -1,0 +1,22 @@
+<tr id="comment-<%= comment.id %>" class="bg-white">
+  <td>
+    <h3 class="text-sm font-medium"><%= comment.user.name %></h3>
+    <p class="text-gray-600"><%= simple_format(comment.content) %></p>
+  </td>
+  <% if current_user.own?(comment) %>
+    <td class="action">
+      <ul class="flex justify-end">
+        <li class="inline-block">
+          <%= link_to "#", class: "edit-comment-link" do %>
+            <i class="bi bi-pencil-fill"></i>
+          <% end %>
+        </li>
+        <li class="inline-block">
+          <%= link_to "#", class: "delete-comment-link" do %>
+            <i class="bi bi-trash-fill"></i>
+          <% end %>
+        </li>
+      </ul>
+    </td>
+  <% end %>
+</tr>
