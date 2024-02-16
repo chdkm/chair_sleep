@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   resources :posts, only: %i[index new create show edit update destroy] do
     resources :comments, only: %i[create edit destroy], shallow: true
   end
+  resource :profile, only: %i[show edit update]
 end

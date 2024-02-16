@@ -5,6 +5,7 @@
     <% end %>
     <nav>
       <ul class="flex space-x-4">
+        <%= link_to "プロフィール設定", profile_path, class: "hover:text-gray-300" %>
         <%= link_to "投稿一覧", posts_path, class: "hover:text-gray-300" %>
         <%= link_to "ログアウト", logout_path, class: "hover:text-gray-300", data: { turbo_method: :delete } %>
       </ul>

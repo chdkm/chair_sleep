@@ -19,7 +19,7 @@
           <% end %>
         </div>
         <ul class="list-inline">
-          <li><i class="bi bi-person"></i><%= post.user.name %></li>
+          <%= link_to post.user.name , profile_path %>
           <li><i class="bi bi-calendar"></i><%= l post.created_at, format: :short %></li>
         </ul>
         <p class="card-text"><%= post.content %></p>
