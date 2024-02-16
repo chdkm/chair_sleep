@@ -1,22 +1,22 @@
-<h1>Profile Details</h1>
-
-<%= form_with(model: @profile, url: profile_path(@profile), method: :patch) do |form| %>
-  <div>
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+<div class="container pt-3">
+  <div class="row">
+    <div class="col-md-10 offset-md-1">
+      <h1 class="float-left mb-5"><%= t('.title') %></h1>
+      <%= link_to t('defaults.edit'), edit_profile_path, class: 'btn btn-success float-right' %>
+      <table class="table">
+        <tr>
+          <th scope="row"><%= User.human_attribute_name(:name) %></th>
+          <td><%= current_user.name %></td>
+        </tr>
+        <tr>
+          <th scope="row"><%= User.human_attribute_name(:sleep_time) %></th>
+          <td><%= current_user.sleep_time %></td>
+        </tr>
+        <tr>
+          <th scope="row"><%= User.human_attribute_name(:favorite_goods) %></th>
+          <td><%= current_user.favorite_goods %></td>
+        </tr>
+      </table>
+    </div>
   </div>
-
-  <div>
-    <%= form.label :email %>
-    <%= form.email_field :email %>
-  </div>
-
-  <div>
-    <%= form.label :bio %>
-    <%= form.text_area :bio %>
-  </div>
-
-  <div>
-    <%= form.submit "Update Profile" %>
-  </div>
-<% end %>
+</div>
