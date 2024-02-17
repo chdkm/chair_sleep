@@ -16,6 +16,8 @@
                 <i>destroy</i>
               <% end %>
             </div>
+          <% else %>
+            <%= render 'bookmark_buttons', { post: post } %>
           <% end %>
         </div>
         <ul class="list-inline">
