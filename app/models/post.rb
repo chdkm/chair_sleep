@@ -5,8 +5,8 @@ class Post < ApplicationRecord
   belongs_to :user
   has_many :comments, dependent: :destroy
   has_many :bookmarks, dependent: :destroy
-  has_many :item_tags, through: :post_tags
   has_many :post_tags, dependent: :destroy
+  has_many :item_tags, through: :post_tags
 
   mount_uploader :image, ImageUploader
 
@@ -14,7 +14,7 @@ class Post < ApplicationRecord
   
   def save_with_tags(item_tag_names:)
     ActiveRecord::Base.transaction do
-      self.tags = item_tag_names.map { |name| Tag.find_or_initialize_by(name: name.strip) }
+      self.item_tags = item_tag_names.map { |name| ItemTag.find_or_initialize_by(name: name.strip) }
       save!
     end
     true
@@ -23,6 +23,6 @@ class Post < ApplicationRecord
   end
 
   def item_tag_names
-    tags.map(&:name).join(',')
+    item_tags.map(&:name).join(',')
   end
 end
