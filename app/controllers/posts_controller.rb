@@ -1,6 +1,11 @@
 class PostsController < ApplicationController
   def index
-    @posts = Post.includes(:user)
+    posts = if (item_tag_name = params[:item_tag_name])
+              Post.with_tag(item_tag_name)
+            else
+              Post.all
+            end
+    @posts = Post.includes(:user).order(created_at: :desc)
   end
 
   def new
@@ -9,7 +14,7 @@ class PostsController < ApplicationController
 
   def create
     @post = current_user.posts.build(post_params)
-    if @post.save
+    if @post.save_with_tags(item_tag_names: params.dig(:post, :item_tag_names).split(',').uniq)
       redirect_to posts_path
     else
       render :new, status: :unprocessable_entity
@@ -28,7 +33,7 @@ class PostsController < ApplicationController
 
   def update
     @post = current_user.posts.find(params[:id])
-    if @post.update(post_params)
+    if @post.save_with_tags(item_tag_names: params.dig(:post, :item_tag_names).split(',').uniq)
       redirect_to post_path(@post)
     else
       render :edit, status: :unprocessable_entity
