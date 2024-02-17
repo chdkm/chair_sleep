@@ -5,7 +5,7 @@ class PostsController < ApplicationController
             else
               Post.all
             end
-    @posts = Post.includes(:user).order(created_at: :desc)
+    @posts = Post.includes(:user, :item_tags).order(created_at: :desc)
   end
 
   def new
