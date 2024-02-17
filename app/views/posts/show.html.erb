@@ -26,6 +26,11 @@
               <% end %>
             </div>
             <p><%= simple_format(@post.content) %></p>
+            <% @post.item_tags.each do |item_tag| %>
+              <div class="badge rounded-pill bg-primary text-decoration-none text-blue">
+                <%= link_to item_tag.name, posts_path(item_tag_name: item_tag.name), class: 'text-blue' %>
+              </div>
+            <% end %>
           </div>
         </div>
       </article>

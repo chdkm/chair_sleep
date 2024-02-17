@@ -22,9 +22,13 @@
         </div>
         <ul class="list-inline">
           <%= link_to post.user.name , profile_path %>
-          <li><i class="bi bi-calendar"></i><%= l post.created_at, format: :short %></li>
+          <li><%= l post.created_at, format: :short %></li>
         </ul>
-        <p class="card-text"><%= post.content %></p>
+        <% post.item_tags.each do |item_tag| %>
+          <div class="badge rounded-pill bg-primary text-decoration-none text-blue">
+            <%= link_to item_tag.name, posts_path(item_tag_name: item_tag.name), class: 'text-blue' %>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>
