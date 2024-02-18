@@ -1,0 +1,6 @@
+<%= search_form_for q, url: url do |f| %>
+  <form class="items-center">
+    <%= f.search_field :item_tags_name_cont, class: 'w-center px-4 py-2 rounded-l-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500', placeholder: "投稿検索フォーム" %>
+    <%= f.submit class: 'px-4 py-2 bg-indigo-500 text-white rounded-r-md hover:bg-indigo-600' %>
+  </form>
+<% end %>

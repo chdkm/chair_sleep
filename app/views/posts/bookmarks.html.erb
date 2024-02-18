@@ -5,10 +5,7 @@
 
   <div class="flex justify-center items-center gap-8">
     <%# Add the tag search form %>
-    <form class="items-center">
-      <input type="text" class="w-center rounded-l-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500" placeholder="タグ検索フォーム">
-      <button type="submit" class="px-4 py-2 bg-indigo-500 text-white rounded-r-md hover:bg-indigo-600">Search</button>
-    </form>
+    <%= render 'search_form', q: @q, url: bookmarks_posts_path %>
     
     <%# Add the new post button %>
     <div>
