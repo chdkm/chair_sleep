@@ -5,16 +5,17 @@
 
   <div class="flex justify-center items-center gap-8">
     <%# Add the tag search form %>
-    <form class="items-center">
-      <input type="text" class="w-center rounded-l-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500" placeholder="タグ検索フォーム">
-      <button type="submit" class="px-4 py-2 bg-indigo-500 text-white rounded-r-md hover:bg-indigo-600">Search</button>
-    </form>
+    <%= render 'search_form', q: @q, url: posts_path %>
     
     <%# Add the new post button %>
     <div>
       <%= link_to "新規投稿", new_post_path, class: "px-4 py-2 bg-indigo-500 text-white rounded-md hover:bg-indigo-600" %>
     </div>
   </div>
+
+  <% if @q.conditions.present? %>
+    <h2 class="text-center">検索結果: <%= @posts.count %>件</h2>
+  <% end %>
 
   <div class="grid grid-cols-3 gap-4">
     <div class="col-3">

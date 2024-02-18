@@ -5,7 +5,8 @@ class PostsController < ApplicationController
             else
               Post.all
             end
-    @posts = Post.includes(:user, :item_tags).order(created_at: :desc)
+    @q = Post.ransack(params[:q])
+    @posts = @q.result(distinct: true).includes(:user, :item_tags).order(created_at: :desc)
   end
 
   def new
@@ -47,7 +48,8 @@ class PostsController < ApplicationController
   end
 
   def bookmarks
-    @bookmark_posts = current_user.bookmarks_posts.includes(:user).order(created_at: :desc)
+    @q = current_user.bookmarks_posts.ransack(params[:q])
+    @bookmark_posts = @q.result(distinct: true).includes(:user, :item_tags).order(created_at: :desc)
   end
 
   private

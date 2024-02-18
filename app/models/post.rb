@@ -25,4 +25,14 @@ class Post < ApplicationRecord
   def item_tag_names
     item_tags.map(&:name).join(',')
   end
+
+
+  def self.ransackable_associations(auth_object = nil)
+    ["item_tags"]
+  end
+
+  def self.ransackable_attributes(auth_object = nil)
+    %w["item_tags_name"]
+  end
+
 end
