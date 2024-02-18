@@ -13,6 +13,10 @@
     </div>
   </div>
 
+  <% if @q.conditions.present? %>
+    <h2 class="text-center">検索結果: <%= @posts.count %>件</h2>
+  <% end %>
+
   <div class="grid grid-cols-3 gap-4">
     <div class="col-3">
       <div class="row">
