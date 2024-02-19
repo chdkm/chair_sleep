@@ -9,6 +9,13 @@ class PostsController < ApplicationController
     @posts = @q.result(distinct: true).includes(:user, :item_tags).order(created_at: :desc)
   end
 
+  def search_tag
+    @item_tags = ItemTag.where("name like ?", "%#{params[:q]}%")
+    respond_to do |format|
+      format.js
+    end
+  end
+
   def new
     @post = Post.new
   end

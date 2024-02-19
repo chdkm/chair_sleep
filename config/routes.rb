@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     resources :comments, only: %i[create edit destroy], shallow: true
     collection do
       get :bookmarks
-      get :search
+      get :search_tag
     end
   end
   resource :profile, only: %i[show edit update]
