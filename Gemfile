@@ -40,6 +40,11 @@ gem 'faker'
 
 gem 'ransack'
 
+gem 'config'
+
+gem 'letter_opener_web', '~> 2.0'
+
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
 
