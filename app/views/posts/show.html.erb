@@ -1,41 +1,51 @@
-<div class="container pt-5">
-  <div class="row mb-3">
-    <div class="col-lg-8 offset-lg-2">
-      <h1><%= t('.title') %></h1>
-      <article class="card">
-        <div class="card-body">
-          <div class="grid grid-cols-12 gap-4">
-            <div class="col-span-3">
-              <%= image_tag "post_placeholder.png", width: "300", height: "200", class: "card-img-top img-fluid" %>
+<h1 class="text-3xl pt-4 mb-4 font-bold">投稿詳細</h1>
+  <article class="card">
+    <div class="card-body">
+      <div class="grid grid-cols-12 gap-4">
+        <div class="col-span-3">
+          <%= image_tag @post.image_url, class: "object-contain" %>
+        </div>
+        <div class="col-span-9">
+          <div class="flex flex-col w-full border-opacity-50">
+            <div class="grid h-10 card bg-base-300 rounded-box place-items-center">
+              <h3 class="font-meiryo text-lg">タイトル：<%= @post.title %></h3>
             </div>
-            <div class="col-span-9">
-              <h3 style="display: inline;"><%= @post.title %></h3>
-              <ul class="list-inline">
-                <li class="list-inline-item"><%= "by #{@post.user.name}" %></li>
-                <li class="list-inline-item"><%= l @post.created_at, format: :long %></li>
-              </ul>
-              <% if current_user.own?(@post) %>
-                <div class='flex justify-end'>
-                  <%= link_to edit_post_path(@post), id: "button-edit-#{@post.id}" do %>
-                    <i>edit</i>
-                  <% end %>
-                  <%= link_to post_path(@post), id: "button-delete-#{@post.id}", data: { turbo_method: :delete, turbo_confirm: t('defaults.delete_confirm') }, class: "ms-2" do %>
-                    <i>destroy</i>
-                  <% end %>
-                </div>
-              <% end %>
+            <div class="divider"></div>
+            <div class="grid h-20 card bg-base-300 rounded-box place-items-center">
+              <h4 class="text-base">仮眠を行うまでの準備：<%= @post.prepare %></h4>
+              <h4 class="text-base">仮眠時の寝方：<%= @post.content %></h4>
+              <h4 class="text-base">仮眠後のアクション：<%= @post.care %></h4>
             </div>
-            <p><%= simple_format(@post.content) %></p>
-            <% @post.item_tags.each do |item_tag| %>
-              <div class="badge rounded-pill bg-primary text-decoration-none text-blue">
-                <%= link_to item_tag.name, posts_path(item_tag_name: item_tag.name), class: 'text-blue' %>
-              </div>
-            <% end %>
+            <div class="divider"></div>
+            <div class="grid h-10 card bg-base-300 rounded-box place-items-center">
+              <h3 class="text-lg">タグ：
+                <% @post.item_tags.each do |item_tag| %>
+                  <div class="badge rounded-pill bg-primary text-decoration-none text-blue">
+                    <%= link_to item_tag.name, posts_path(item_tag_name: item_tag.name), class: 'text-blue' %>
+                  </div>
+                <% end %>
+              </h3>
+            </div>
+            <div class="divider"></div>
+            <div class="grid h-15 card bg-base-300 rounded-box place-items-center">
+              <h4 class="text-base">投稿者：<%= @post.user.name %></h4>
+              <h4 class="text-base"><%= @post.created_at %></h4>
+            </div>
           </div>
         </div>
-      </article>
+      </div>
     </div>
-  </div>
+  </article>
+  <% if current_user.own?(@post) %>
+    <div class='flex justify-end'>
+      <%= link_to edit_post_path(@post), id: "button-edit-#{@post.id}", class: 'btn btn-primary' do %>
+        <i>edit</i>
+      <% end %>
+      <%= link_to post_path(@post), id: "button-delete-#{@post.id}", class: 'btn btn-outline btn-warning', data: { turbo_method: :delete, turbo_confirm: t('defaults.delete_confirm') }, class: "ml-2" do %>
+        <i>destroy</i>
+      <% end %>
+    </div>
+  <% end %>
   <%= render 'comments/form', comment: @comment, post: @post %>
   <div class="row">
     <div class="col-lg-8 offset-lg-2">
@@ -46,4 +56,3 @@
       </table>
     </div>
   </div>
-</div>
