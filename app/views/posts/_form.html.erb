@@ -1,32 +1,32 @@
 <%= form_with model: @post do |form| %>
   <div class="space-y-4">
     <div>
-      <%= form.label :title, class: "block text-gray-700 font-bold mb-2" %>
+      <%= form.label "タイトル", class: "block text-gray-700 font-bold mb-2" %>
       <%= form.text_field :title, class: "w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500" %>
     </div>
 
     <div>
-      <%= form.label :prepare, class: "block text-gray-700 font-bold mb-2" %>
+      <%= form.label "仮眠を行うまでの準備", class: "block text-gray-700 font-bold mb-2" %>
       <%= form.text_area :prepare, class: "w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500" %>
     </div>
 
     <div>
-      <%= form.label :content, class: "block text-gray-700 font-bold mb-2" %>
+      <%= form.label "仮眠の寝方", class: "block text-gray-700 font-bold mb-2" %>
       <%= form.text_area :content, class: "w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500" %>
     </div>
 
     <div>
-      <%= form.label :care, class: "block text-gray-700 font-bold mb-2" %>
+      <%= form.label "仮眠後のアクション", class: "block text-gray-700 font-bold mb-2" %>
       <%= form.text_area :care, class: "w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500" %>
     </div>
 
     <div>
-      <%= form.label :item_tag_names, class: "block text-gray-700 font-bold mb-2" %>
+      <%= form.label "使用したグッズ", class: "block text-gray-700 font-bold mb-2" %>
       <%= form.text_field :item_tag_names, class: "w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500", placeholder: ',で区切って入力してください'%>
     </div>
 
     <div>
-      <%= form.label :image, class: "block text-gray-700 font-bold mb-2" %>
+      <%= form.label "画像", class: "block text-gray-700 font-bold mb-2" %>
       <%= form.file_field :image, class: "form-control", accept: 'image/*' %>
       <%= form.hidden_field :image_cache %>
     </div>

@@ -18,7 +18,7 @@
             </div>
             <div class="divider"></div>
             <div class="grid h-10 card bg-base-300 rounded-box place-items-center">
-              <h3 class="text-lg">タグ：
+              <h3 class="text-lg">使用したグッズ：
                 <% @post.item_tags.each do |item_tag| %>
                   <div class="badge rounded-pill bg-primary text-decoration-none text-blue">
                     <%= link_to item_tag.name, posts_path(item_tag_name: item_tag.name), class: 'text-blue' %>
