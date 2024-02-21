@@ -36,23 +36,27 @@
       </div>
     </div>
   </article>
-  <% if current_user.own?(@post) %>
-    <div class='flex justify-end'>
-      <%= link_to edit_post_path(@post), id: "button-edit-#{@post.id}", class: 'btn btn-primary' do %>
-        <i>edit</i>
-      <% end %>
-      <%= link_to post_path(@post), id: "button-delete-#{@post.id}", class: 'btn btn-outline btn-warning', data: { turbo_method: :delete, turbo_confirm: t('defaults.delete_confirm') }, class: "ml-2" do %>
-        <i>destroy</i>
-      <% end %>
-    </div>
-  <% end %>
-  <%= render 'comments/form', comment: @comment, post: @post %>
-  <div class="row">
-    <div class="col-lg-8 offset-lg-2">
-      <table class="table">
-        <tbody id="table-comment">
-          <%= render @comments %>
-        </tbody>
-      </table>
+  <div class="flex justify-center gap-4">
+    <% if current_user.own?(@post) %>
+      <div class='flex justify-center gap-4'>
+        <%= link_to edit_post_path(@post), id: "button-edit-#{@post.id}", class: 'btn btn-primary float-right' do %>
+          <i>edit</i>
+        <% end %>
+        <%= link_to post_path(@post), id: "button-delete-#{@post.id}", class: 'btn btn-outline btn-warning float-right', data: { turbo_method: :delete, turbo_confirm: t('defaults.delete_confirm') } do %>
+          <i>destroy</i>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+  <div class="container mx-auto">
+    <%= render 'comments/form', comment: @comment, post: @post %>
+    <div class="row">
+      <div class="col-lg-8 offset-lg-2">
+        <table class="table">
+          <tbody id="table-comment">
+            <%= render @comments %>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
