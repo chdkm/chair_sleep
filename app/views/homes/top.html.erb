@@ -1,5 +1,44 @@
-<div class="service-description">
-  <h1 class="text-4xl font-bold mb-4 text-center">サービス説明</h1>
-  <p class="text-lg mb-2 text-center" style="text-align: center;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae turpis euismod, aliquet nunc id, tincidunt nisl. Sed euismod, nisl id lacinia consectetur, velit nunc tincidunt nunc, ut lacinia nunc nisl id nunc. Sed euismod, nisl id lacinia consectetur, velit nunc tincidunt nunc, ut lacinia nunc nisl id nunc.</p>
-  <p class="text-lg mb-2 text-center" style="text-align: center;">Phasellus auctor, nisl ac ultrices tincidunt, urna nisl aliquet nunc, id tincidunt nisl nisl id nunc. Sed euismod, nisl id lacinia consectetur, velit nunc tincidunt nunc, ut lacinia nunc nisl id nunc. Sed euismod, nisl id lacinia consectetur, velit nunc tincidunt nunc, ut lacinia nunc nisl id nunc.</p>
+<div class="hero min-h-screen bg-base-200">
+  <div class="hero-content text-center">
+    <%= image_tag 'sleep_image' , size: '500x500', class: 'py-12 mx-auto d-block' %>
+    <div>
+      <h1 class="py-6 text-5xl font-bold">睡眠不足を改善しよう！</h1>
+      <p class="py-6">短い仮眠で快適な寝方を模索して見ませんか？</p>
+    </div>
+  </div>
 </div>
+
+<section class="bg-blue-500 text-white py-20">
+  <div class="container mx-auto text-center">
+    <h1 class="text-5xl font-bold mb-8">椅子寝の使い方</h1>
+    <div class="grid grid-cols-2 md:grid-cols-2 gap-12">
+      <h2 class="text-lg mb-12">
+        <div>1.快適な寝方について模索しよう</div>
+        <%= image_tag 'sleep_way' , size: '200x200', class: 'mx-auto d-block' %>
+        <p class="text-base">椅子を使った快適な仮眠を身につけよう</p>
+      </h2>
+      <h2 class="text-lg mb-12">
+        <div>2.仮眠方法について投稿しよう</div>
+        <%= image_tag 'post_way' , size: '200x200', class: 'mx-auto d-block' %>
+        <p class="text-base">仮眠の準備から寝方、起きた後についてグッズを含めて投稿！</p>
+      </h2>
+      <h2 class="text-lg mb-12">
+        <div>3.良い仮眠方法を見つけたらコメントしよう</div>
+        <%= image_tag 'comment_image' , size: '300x220', class: 'mx-auto d-block' %>
+      </h2>
+      <h2 class="text-lg mb-12">
+        <div>4.いいね機能追加予定</div>
+        <%= image_tag 'good_mark' , size: '200x200', class: 'mx-auto d-block' %>
+      </h2>
+    </div>
+    <% if current_user %>
+      <%= link_to posts_path, class: 'bg-white text-blue-500 font-semibold py-3 px-8 rounded-lg hover:bg-blue-700 hover:text-white transition duration-300' do %>
+        投稿しよう！
+      <% end %>
+    <% else %>
+      <%= link_to new_user_path, class: 'bg-white text-blue-500 font-semibold py-3 px-8 rounded-lg hover:bg-blue-700 hover:text-white transition duration-300' do %>
+        まずは登録！
+      <% end %>
+    <% end %>
+  </div>
+</section>
