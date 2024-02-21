@@ -20,7 +20,7 @@
         <% end %>
       </div>
       <ul class="list-inline">
-        <%= link_to post.user.name , profile_path %>
+        <%= post.user.name %>
         <li><%= l post.created_at, format: :short %></li>
       </ul>
       <div class="flex justify-content-center mt-3"">
