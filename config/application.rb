@@ -1,6 +1,7 @@
 require_relative "boot"
 
 require "rails/all"
+require 'dotenv/rails-now'
 
 # Add this line to load dotenv
 Dotenv::Railtie.load
