@@ -41,6 +41,8 @@ class PostsController < ApplicationController
 
   def update
     @post = current_user.posts.find(params[:id])
+    @post.assign_attributes(post_params)
+
     if @post.save_with_tags(item_tag_names: params.dig(:post, :item_tag_names).split(',').uniq)
       redirect_to post_path(@post)
     else
