@@ -1,0 +1,43 @@
+ja:
+  helpers:
+    submit:
+      create: 登録
+      submit: 保存
+      update: 更新
+    label:
+      email: メールアドレス
+      password: パスワード
+  user_sessions:
+    new:
+      title: ログイン
+      login: ログイン
+      to_register_page: 登録ページへ
+      password_forget: パスワードをお忘れの方はこちら
+    create:
+      success: ログインしました
+      failure: ログインに失敗しました
+    destroy:
+      success: ログアウトしました
+  users:
+    new:
+      title: ユーザー登録
+      to_login_page: ログインページへ
+    create:
+      success: ユーザー登録が完了しました
+      failure: ユーザー登録に失敗しました
+  posts:
+    new:
+      title: 投稿作成
+    show:
+      title: 投稿詳細
+    index:
+      title: 投稿一覧
+    edit:
+      title: 投稿編集
+    bookmarks:
+      title: ブックマーク一覧
+  profiles:
+    show:
+      title: プロフィール
+    edit:
+      title: プロフィール編集
