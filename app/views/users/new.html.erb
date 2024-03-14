@@ -1,7 +1,9 @@
+<% content_for(:title, t('.title')) %>
 <div class="flex justify-center items-center h-screen bg-gray-100">
   <div class="bg-white p-8 shadow-md rounded-md">
       <h1 class="text-center text-2xl font-bold mb-4">ユーザー登録</h1>
       <%= form_with model: @user do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
         <div class="mb-4">
           <%= f.label :name, class: "block text-gray-700 text-sm font-bold mb-2" %>
           <%= f.text_field :name, class: "mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" %>
