@@ -1,0 +1,7 @@
+<% if current_page < total_pages %>
+  <a href="<%= url %>" class="btn btn-sm btn-primary mr-1">
+    Last
+  </a>
+<% else %>
+  <span class="btn btn-sm btn-primary mr-1" disabled>Last</span>
+<% end %>
