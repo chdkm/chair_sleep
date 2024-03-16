@@ -1,0 +1,9 @@
+<% if page.current? %>
+  <span class="btn btn-sm btn-primary mr-1">
+    <%= page %>
+  </span>
+<% else %>
+  <a href="<%= url %>" class="btn btn-sm btn-outline-primary mr-1">
+    <%= page %>
+  </a>
+<% end %>
