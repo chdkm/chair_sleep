@@ -32,7 +32,7 @@ gem 'cssbundling-rails'
 
 gem 'jsbundling-rails'
 
-gem 'sorcery', github: 'sorcery/sorcery'
+gem 'sorcery'
 
 gem 'carrierwave', '~> 2.0'
 
