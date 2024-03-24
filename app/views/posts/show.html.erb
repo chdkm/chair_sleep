@@ -8,24 +8,33 @@
         </div>
         <div class="col-span-9">
           <div class="flex flex-col w-full border-opacity-50">
+            <div class="font-semibold">タイトル</div>
             <div class="grid h-10 card bg-base-300 rounded-box place-items-center">
-              <h3 class="font-meiryo text-lg">タイトル：<%= @post.title %></h3>
+              <h3 class="font-meiryo text-lg"><%= @post.title %></h3>
             </div>
             <div class="divider"></div>
-            <div class="grid h-20 card bg-base-300 rounded-box place-items-center">
-              <h4 class="text-base">仮眠を行うまでの準備：<%= @post.prepare %></h4>
-              <h4 class="text-base">仮眠時の寝方：<%= @post.content %></h4>
-              <h4 class="text-base">仮眠後のアクション：<%= @post.care %></h4>
+            <div class="font-semibold">仮眠を行うまでの準備</div>
+            <div class="grid grid-cols-1 h-40 bg-base-300 rounded-lg items-center p-4">
+              <h4 class="text-lg"><%= @post.prepare %></h4>
             </div>
             <div class="divider"></div>
+            <div class="font-semibold">仮眠時の寝方</div>
+            <div class="grid grid-cols-1 h-40 bg-base-300 rounded-lg items-center p-4">
+              <h4 class="text-lg"><%= @post.content %></h4>
+            </div>
+            <div class="divider"></div>
+            <div class="font-semibold">仮眠後のアクション</div>
+            <div class="grid grid-cols-1 h-40 bg-base-300 rounded-lg items-center p-4">
+              <h4 class="text-lg"><%= @post.care %></h4>
+            </div>
+            <div class="divider"></div>
+            <div class="font-semibold">使用したグッズ</div>
             <div class="grid h-10 card bg-base-300 rounded-box place-items-center">
-              <h3 class="text-lg">使用したグッズ：
-                <% @post.item_tags.each do |item_tag| %>
-                  <div class="badge rounded-pill bg-primary text-decoration-none text-blue">
-                    <%= link_to item_tag.name, posts_path(item_tag_name: item_tag.name), class: 'text-blue' %>
-                  </div>
-                <% end %>
-              </h3>
+              <% @post.item_tags.each do |item_tag| %>
+                <div class="badge rounded-pill bg-primary text-decoration-none text-blue">
+                  <%= link_to item_tag.name, posts_path(item_tag_name: item_tag.name), class: 'text-blue' %>
+                </div>
+              <% end %>
             </div>
             <div class="divider"></div>
             <div class="grid h-15 card bg-base-300 rounded-box place-items-center">
