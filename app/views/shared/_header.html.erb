@@ -3,7 +3,14 @@
     <%= link_to root_path , class: "text-2xl font-bold" do %>
       椅子寝
     <% end %>
-    <nav>
+
+    <div class="menu-icon lg:hidden">
+      <!-- ハンバーガーメニューアイコンとしてテキストを使用 -->
+      <div>☰</div>
+    </div>
+
+    <!-- ナビゲーションメニュー -->
+    <nav class="menu hidden lg:block">
       <ul class="flex space-x-4">
         <%= link_to "ブックマーク一覧", bookmarks_posts_path, class: "hover:text-gray-300" %>
         <%= link_to "プロフィール設定", profile_path, class: "hover:text-gray-300" %>
@@ -11,5 +18,17 @@
         <%= link_to "ログアウト", logout_path, class: "hover:text-gray-300", data: { turbo_method: :delete } %>
       </ul>
     </nav>
+
+    <script>
+      // ハンバーガーメニューのJavaScriptコード
+      document.addEventListener('DOMContentLoaded', function() {
+        const menuIcon = document.querySelector('.menu-icon');
+        const menu = document.querySelector('.menu');
+
+        menuIcon.addEventListener('click', function() {
+          menu.classList.toggle('hidden');
+        });
+      });
+    </script>
   </div>
 </header>
