@@ -4,31 +4,33 @@
       椅子寝
     <% end %>
 
-    <div class="menu-icon lg:hidden">
-      <!-- ハンバーガーメニューアイコンとしてテキストを使用 -->
-      <div>☰</div>
-    </div>
-
-    <!-- ナビゲーションメニュー -->
-    <nav class="menu hidden lg:block">
-      <ul class="flex space-x-4">
+    <nav>
+      <button id="button" type="button" class="fixed top-6 right-6 z-10">
+        <i id="bars" class="fa-solid fa-bars fa-2x"></i>
+        <i id="xmark" class="fa-solid fa-xmark fa-2x hidden text-white"></i>
+      </button>
+      <ul id="menu" class="fixed top-0 left-0 z-0 w-full translate-x-full bg-blue-300 text-center text-xl font-bold text-white transition-all ease-linear">
         <%= link_to "ブックマーク一覧", bookmarks_posts_path, class: "hover:text-gray-300" %>
         <%= link_to "プロフィール設定", profile_path, class: "hover:text-gray-300" %>
         <%= link_to "投稿一覧", posts_path, class: "hover:text-gray-300" %>
         <%= link_to "ログアウト", logout_path, class: "hover:text-gray-300", data: { turbo_method: :delete } %>
       </ul>
     </nav>
-
-    <script>
-      // ハンバーガーメニューのJavaScriptコード
-      document.addEventListener('DOMContentLoaded', function() {
-        const menuIcon = document.querySelector('.menu-icon');
-        const menu = document.querySelector('.menu');
-
-        menuIcon.addEventListener('click', function() {
-          menu.classList.toggle('hidden');
-        });
-      });
-    </script>
   </div>
 </header>
+
+<script>
+  // ハンバーガーメニューのJavaScriptコード
+  document.addEventListener('DOMContentLoaded', function() {
+    const button = document.getElementById('button');
+    const bars = document.getElementById('bars');
+    const xmark = document.getElementById('xmark');
+    const menu = document.getElementById('menu');
+
+    button.addEventListener('click', event => {
+      bars.classList.toggle('hidden')
+      xmark.classList.toggle('hidden')
+      menu.classList.toggle('translate-x-full')
+    });
+  });
+</script>
