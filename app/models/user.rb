@@ -12,6 +12,8 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :bookmarks, dependent: :destroy
   has_many :bookmarks_posts, through: :bookmarks, source: :post
+  has_many :likes, dependent: :destroy
+  has_many :likes_posts, through: :likes, source: :post
 
   def own?(object)
     id == object&.user_id
@@ -27,5 +29,17 @@ class User < ApplicationRecord
 
   def bookmark?(post)
     bookmarks_posts.include?(post)
+  end
+
+  def like(post)
+    likes_posts << post
+  end
+
+  def unlike(post)
+    likes_posts.destroy(post)
+  end
+
+  def like?(post)
+    likes_posts.include?(post)
   end
 end
