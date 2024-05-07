@@ -18,6 +18,7 @@
         <% else %>
           <%= render 'bookmark_buttons', { post: post } %>
           <%= render 'like_buttons', { post: post } %>
+          <td>いいね数：<%= post.likes.count %></td>
         <% end %>
       </div>
       <ul class="list-inline">
