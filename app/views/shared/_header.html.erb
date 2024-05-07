@@ -11,6 +11,7 @@
       </button>
       <ul id="menu" class="fixed top-0 left-0 z-0 w-full translate-x-full bg-blue-300 text-center text-xl font-bold text-white transition-all ease-linear">
         <%= link_to "ブックマーク一覧", bookmarks_posts_path, class: "hover:text-gray-300" %>
+        <%= link_to "いいねランキング一覧", likes_posts_path, class: "hover:text-gray-300" %>
         <%= link_to "プロフィール設定", profile_path, class: "hover:text-gray-300" %>
         <%= link_to "投稿一覧", posts_path, class: "hover:text-gray-300" %>
         <%= link_to "ログアウト", logout_path, class: "hover:text-gray-300", data: { turbo_method: :delete } %>
