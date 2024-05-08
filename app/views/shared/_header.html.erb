@@ -10,11 +10,11 @@
         <i id="xmark" class="fa-solid fa-xmark fa-2x hidden text-white"></i>
       </button>
       <ul id="menu" class="fixed top-0 left-0 z-0 w-full translate-x-full bg-blue-300 text-center text-xl font-bold text-white transition-all ease-linear">
-        <%= link_to "ブックマーク一覧", bookmarks_posts_path, class: "hover:text-gray-300" %>
-        <%= link_to "いいねランキング一覧", likes_posts_path, class: "hover:text-gray-300" %>
-        <%= link_to "プロフィール設定", profile_path, class: "hover:text-gray-300" %>
-        <%= link_to "投稿一覧", posts_path, class: "hover:text-gray-300" %>
-        <%= link_to "ログアウト", logout_path, class: "hover:text-gray-300", data: { turbo_method: :delete } %>
+        <%= link_to "ブックマーク一覧", bookmarks_posts_path, class: "hover:text-gray-300 block px-8 py-2" %>
+        <%= link_to "いいねランキング一覧", likes_posts_path, class: "hover:text-gray-300 block px-8 py-2" %>
+        <%= link_to "プロフィール設定", profile_path, class: "hover:text-gray-300 block px-8 py-2" %>
+        <%= link_to "投稿一覧", posts_path, class: "hover:text-gray-300 block px-8 py-2" %>
+        <%= link_to "ログアウト", logout_path, class: "hover:text-gray-300 block px-8 py-2", data: { turbo_method: :delete } %>
       </ul>
     </nav>
   </div>
@@ -29,9 +29,17 @@
     const menu = document.getElementById('menu');
 
     button.addEventListener('click', event => {
-      bars.classList.toggle('hidden')
-      xmark.classList.toggle('hidden')
-      menu.classList.toggle('translate-x-full')
+      if (bars.classList.contains('hidden')) {
+        // バーが非表示の場合、バーを表示して×を非表示にし、メニューを表示
+        bars.classList.remove('hidden');
+        xmark.classList.add('hidden');
+        menu.classList.remove('translate-x-full');
+      } else {
+        // バーが表示されている場合、バーを非表示にし、×を表示してメニューを非表示
+        bars.classList.add('hidden');
+        xmark.classList.remove('hidden');
+        menu.classList.add('translate-x-full');
+      }
     });
   });
 </script>
