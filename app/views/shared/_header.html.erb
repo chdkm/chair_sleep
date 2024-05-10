@@ -4,42 +4,57 @@
       椅子寝
     <% end %>
 
-    <nav>
-      <button id="button" type="button" class="fixed top-6 right-6 z-10">
-        <i id="bars" class="fa-solid fa-bars fa-2x"></i>
-        <i id="xmark" class="fa-solid fa-xmark fa-2x hidden text-white"></i>
+    <div>
+      <button id="toggleButton" aria-label="Toggle Menu" class="flex items-center justify-center">
+        <span id="bars" class="block">&#9776;</span>
+        <span id="xmark" class="hidden block">&#10006;</span>
       </button>
-      <ul id="menu" class="fixed top-0 left-0 z-0 w-full translate-x-full bg-blue-300 text-center text-xl font-bold text-white transition-all ease-linear">
+      <nav id="menu" class="fixed top-0 left-0 z-0 w-full translate-x-full bg-blue-300 text-center text-xl font-bold text-white transition-all ease-linear">
         <%= link_to "ブックマーク一覧", bookmarks_posts_path, class: "hover:text-gray-300 block px-8 py-2" %>
         <%= link_to "いいねランキング一覧", likes_posts_path, class: "hover:text-gray-300 block px-8 py-2" %>
         <%= link_to "プロフィール設定", profile_path, class: "hover:text-gray-300 block px-8 py-2" %>
         <%= link_to "投稿一覧", posts_path, class: "hover:text-gray-300 block px-8 py-2" %>
         <%= link_to "ログアウト", logout_path, class: "hover:text-gray-300 block px-8 py-2", data: { turbo_method: :delete } %>
-      </ul>
-    </nav>
+      </nav>
+    </div>
   </div>
 </header>
 
 <script>
-  // ハンバーガーメニューのJavaScriptコード
-  document.addEventListener('DOMContentLoaded', function() {
-    const button = document.getElementById('button');
+  document.addEventListener('DOMContentLoaded', function () {
+    const toggleButton = document.getElementById('toggleButton');
     const bars = document.getElementById('bars');
     const xmark = document.getElementById('xmark');
     const menu = document.getElementById('menu');
 
-    button.addEventListener('click', event => {
-      if (bars.classList.contains('hidden')) {
-        // バーが非表示の場合、バーを表示して×を非表示にし、メニューを表示
+    toggleButton.addEventListener('click', toggleMenu);
+    toggleButton.addEventListener('keydown', handleKeydown);
+
+    function toggleMenu(event) {
+        if (bars.classList.contains('hidden')) {
+            showMenu();
+        } else {
+            hideMenu();
+        }
+    }
+
+    function showMenu() {
         bars.classList.remove('hidden');
         xmark.classList.add('hidden');
-        menu.classList.remove('translate-x-full');
-      } else {
-        // バーが表示されている場合、バーを非表示にし、×を表示してメニューを非表示
+        menu.classList.remove('-translate-x-full');
+    }
+
+    function hideMenu() {
         bars.classList.add('hidden');
         xmark.classList.remove('hidden');
-        menu.classList.add('translate-x-full');
-      }
-    });
+        menu.classList.add('-translate-x-full');
+    }
+
+    function handleKeydown(event) {
+        if (event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault();
+            toggleMenu();
+        }
+    }
   });
 </script>
