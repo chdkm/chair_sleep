@@ -4,14 +4,12 @@
       椅子寝
     <% end %>
 
-    <nav>
-      <ul id="menu" class="fixed top-0 left-3">
-        <%= link_to "ブックマーク一覧", bookmarks_posts_path, class: "hover:text-gray-300" %>
-        <%= link_to "いいねランキング一覧", likes_posts_path, class: "hover:text-gray-300" %>
-        <%= link_to "プロフィール設定", profile_path, class: "hover:text-gray-300" %>
-        <%= link_to "投稿一覧", posts_path, class: "hover:text-gray-300" %>
-        <%= link_to "ログアウト", logout_path, class: "hover:text-gray-300", data: { turbo_method: :delete } %>
-      </ul>
+    <nav id="menu" class="text-right top-0 left-3">
+      <%= link_to "ブックマーク一覧", bookmarks_posts_path, class: "hover:text-gray-300" %>
+      <%= link_to "いいねランキング一覧", likes_posts_path, class: "hover:text-gray-300" %>
+      <%= link_to "プロフィール設定", profile_path, class: "hover:text-gray-300" %>
+      <%= link_to "投稿一覧", posts_path, class: "hover:text-gray-300" %>
+      <%= link_to "ログアウト", logout_path, class: "hover:text-gray-300", data: { turbo_method: :delete } %>
     </nav>
   </div>
 </header>
