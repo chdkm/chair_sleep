@@ -1,3 +1,6 @@
 default_url_options:
   protcol: 'https'
   host: 'example.com'
+
+sorcery:
+  line_callback_url: 'https://chair-sleep-73ef4acad426.herokuapp.com/oauth/callback?provider=line'
