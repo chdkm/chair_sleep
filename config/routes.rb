@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   delete 'logout', to: 'user_sessions#destroy', as: :logout
   get 'rules', to: 'homes#rules'
   get 'policy', to: 'homes#policy'
+  post "oauth/callback", to: "oauths#callback"
+  get "oauth/callback", to: "oauths#callback"
+  get "oauth/:provider", to: "oauths#oauth", as: :auth_at_provider
 
   resources :users, only: %i[new create]
   resources :posts, only: %i[index new create show edit update destroy] do
