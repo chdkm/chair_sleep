@@ -224,8 +224,11 @@ Rails.application.config.sorcery.configure do |config|
   config.line.secret = ENV['LINE_CHANNEL_SECRET']
   config.line.callback_url = Settings.sorcery[:line_callback_url]
   config.line.scope = 'profile openid email'
-  # config.line.bot_prompt = "normal"
-  config.line.user_info_mapping = { email: "email", name: "name" }
+  config.line.bot_prompt = "aggressive"
+  config.line.user_info_mapping = { 
+    name: 'displayName',
+    email: 'userId'
+  }
 
   
   # For information about Discord API
