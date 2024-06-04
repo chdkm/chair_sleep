@@ -22,6 +22,7 @@ class PostsController < ApplicationController
 
   def create
     @post = current_user.posts.build(post_params)
+    @post.user_uid = current_user.uid
     if @post.save_with_tags(item_tag_names: params.dig(:post, :item_tag_names).split(',').uniq)
       redirect_to posts_path, success: t('defaults.flash_message.created')
     else

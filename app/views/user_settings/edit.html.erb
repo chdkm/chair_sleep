@@ -1,0 +1,16 @@
+<h1 class="text-3xl pt-4 mb-4 font-bold">通知設定</h1>
+
+<% if current_user.line_user? %>
+  <%= form_with model: @user_setting, url: user_setting_path, method: :put do |form| %>
+    <div class="field">
+      <%= form.label :line_notification, "LINE通知を受け取る" %>
+      <%= form.check_box :line_notification, { checked: @user_setting.line_notification } %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit "更新", class: "bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600"%>
+    </div>
+  <% end %>
+<% else %>
+  <p>LINEログインユーザーのみ通知設定が可能です。</p>
+<% end %>

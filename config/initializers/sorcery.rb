@@ -227,7 +227,8 @@ Rails.application.config.sorcery.configure do |config|
   config.line.bot_prompt = "aggressive"
   config.line.user_info_mapping = { 
     name: 'displayName',
-    email: 'userId'
+    email: 'userId',
+    line_user_id: 'uid'
   }
 
   
