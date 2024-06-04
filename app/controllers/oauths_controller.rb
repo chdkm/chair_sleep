@@ -26,4 +26,14 @@ class OauthsController < ApplicationController
   def auth_params
     params.permit(:code, :provider, :error, :state)
   end
+
+  def create_user_from_provider(provider)
+    user = create_from(provider)
+    line_user_id = user.authentications.find_by(provider: 'line')&.uid
+    if user.persisted? && line_user_id.present?
+      user.update(line_login: true)
+      user.create_user_setting(line_user_id: line_user_id)
+    end
+    user
+  end
 end

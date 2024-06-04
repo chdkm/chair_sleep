@@ -50,6 +50,12 @@ gem 'kaminari'
 
 gem 'counter_culture'
 
+gem 'line-bot-api'
+
+gem 'rest-client'
+
+gem 'omniauth-line'
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
 
