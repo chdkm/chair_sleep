@@ -37,6 +37,46 @@
               <% end %>
             </div>
             <div class="divider"></div>
+            <div>
+              <div class="font-semibold">グッズ登録</div>
+              <% if current_user.own?(@post) %>
+                <%= link_to 'グッズ登録へ', new_item_path(post_id: @post.id), class: 'btn btn-primary float-right', target: '_blank', rel: "noopener noreferrer" %>
+              <% end %>
+              <% if @items.present? %>
+              <% @items.each do |item| %>
+                <div class="card mb-3 search-result-item" style="max-width: 380px; max-height: 300px;">
+                  <div class="row g-0">
+                    <div class="col-md-4" style="margin: auto 0;">
+                      <% if item[:image_url].present? %>
+                        <%= image_tag item[:image_url], alt: item[:name], class: 'img-fluid float-right' %>
+                      <% else %>
+                        <p>画像がありません</p>
+                      <% end %>
+                    </div>
+
+                    <div class="col-md-8">
+                      <div class="d-flex justify-content-between align-items-center" style="padding: 5px 15px">
+                        <p class="text-start m-0" style="color: #7d7d7d;"><%= item[:name] %></p>
+                        <% if current_user && current_user.own?(@post) %>
+                          <%= link_to item_path(item), id: 'delete-btn', method: :delete, data: { turbo_method: :delete, turbo_confirm: t('defaults.delete_confirm') } do %>
+                            <i class="fa-regular fa-trash-can" style="color: #ff2d2d;"></i>
+                          <% end %>
+                        <% end %>
+                      </div>
+                      <div class="card-body" style="padding: 5px 15px;">
+                        <div class="d-flex justify-content-between align-items-center">
+                          <span><%= number_to_currency(item[:price], unit: '¥', format: '%u %n') %></span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              <% end %>
+            <% else %>
+              <p class="text-center m-4">登録しているアイテムはありません。</p>
+            <% end %>
+            </div>
+            <div class="divider"></div>
             <div class="grid h-15 card bg-base-300 rounded-box place-items-center">
               <h4 class="text-base">投稿者：<%= @post.user.name %></h4>
               <h4 class="text-base"><%= @post.created_at %></h4>

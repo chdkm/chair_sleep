@@ -1,0 +1,24 @@
+<h1>アイテムの詳細</h1>
+<%= form_with url: items_path, method: :post, local: true do |f|%>
+  <div>
+    <%= label_tag 'item[name]', 'アイテム名' %>
+    <%= text_field_tag 'item[name]', @item['itemName'] %>
+  </div>
+  <div>
+    <%= label_tag 'item[image_url]', 'アイテム画像' %>
+    <% if @item['mediumImageUrls'].present? %>
+      <%= image_tag @item['mediumImageUrls'].first %>
+      <%= hidden_field_tag 'item[image_url]', @item['mediumImageUrls'].first %>
+    <% else %>
+      <p>画像が見つかりませんでした。</p>
+    <% end %>
+  </div>
+  <div>
+    <%= label_tag 'item[price]', '価格' %>
+    <%= text_field_tag 'item[price]', @item['itemPrice'] %>
+  </div>
+  <%= hidden_field_tag :post_id, params[:post_id] %>
+  <div>
+    <%= submit_tag 'アイテムを保存する' %>
+  </div>
+<% end %>
