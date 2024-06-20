@@ -1,0 +1,13 @@
+<h1 class="text-3xl pt-4 mb-4 font-bold">使用グッズ登録ページ</h1>
+<div class="search-box">
+  <%= form_with url: new_item_path(post_id: params[:post_id]), method: :get, local: true do |f| %>
+    <div class="form-group">
+      <%= hidden_field_tag :post_id, params[:post_id] %>
+      <%= f.text_field :keyword, value: params[:keyword], class: "form-control" %>
+      <%= f.submit '製品名を検索', class: "form-control btn btn-success" %>
+    </div>
+  <% end %>
+  <% if @items.present? %>
+    <%= render 'items/item', items: @items, post_id: params[:post_id] %>
+  <% end %>
+</div>

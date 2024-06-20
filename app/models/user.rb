@@ -14,6 +14,7 @@ class User < ApplicationRecord
   has_many :bookmarks_posts, through: :bookmarks, source: :post
   has_many :likes, dependent: :destroy
   has_many :likes_posts, through: :likes, source: :post
+  has_many :items, dependent: :destroy
   has_one :user_setting, dependent: :destroy
   has_many :authentications, dependent: :destroy
   accepts_nested_attributes_for :authentications

@@ -1,0 +1,9 @@
+<% @items.first(10).each do |item| %>
+  <div class="list-group">
+    <%= check_box_tag 'item_ids[]', item['itemCode'] %>
+    <%= image_tag (item['mediumImageUrls'][0]) %>
+    <%= link_to item.name, "#{item.url}" %>
+    <%= number_with_delimiter(item.price) %>円
+    <%= link_to '選択', select_items_path(post_id: @post_id, item_code: item['itemCode']), method: :post, remote: true %>
+  </div>
+<% end %>

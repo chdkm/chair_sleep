@@ -21,6 +21,11 @@ Rails.application.routes.draw do
   end
   resource :profile, only: %i[show edit update]
   resources :bookmarks, only: %i[create destroy]
+  resources :items, only: %i[new create destroy] do
+    collection do
+      get :select
+    end
+  end
   resources :likes, only: %i[create destroy]
   resources :password_resets, only: %i[new create edit update]
   resource :user_setting, only: %i[edit update]
