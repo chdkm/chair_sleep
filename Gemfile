@@ -58,6 +58,8 @@ gem 'omniauth-line'
 
 gem 'rakuten_web_service'
 
+gem 'mini_magick'
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
 
