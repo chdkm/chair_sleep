@@ -9,8 +9,11 @@ class Comment < ApplicationRecord
 
   def notify_post_owner
     user_setting = UserSetting.find_by(user_id: post.user.id)
+    post_title = post.title
     if user_setting&.line_notification
-      LineNotificationService.send_line_message(post.user, "新しいコメントが投稿されました: #{content}")
+      Rails.logger.info "LINE notification will be sent to user: #{post.user.id}"
+      message = "#{post_title}に新しいコメントが投稿されました: #{content}"
+      LineNotificationService.send_line_message(post.user, message)
     else
       Rails.logger.info "LINE notification is disabled for user: #{post.user.id}"
     end
