@@ -1,6 +1,3 @@
-require 'line/bot'
-require 'rest-client'
-
 class LineNotificationService
   def initialize(user)
     @user = user
@@ -8,11 +5,15 @@ class LineNotificationService
     @access_token = ENV['LINE_CHANNEL_TOKEN']
   end
 
-  def self.send_line_message(user,message)
+  def self.send_line_message(user, message)
+    new(user).send_line_message(message)
+  end
+
+  def send_line_message(message)
     uri = URI.parse("https://api.line.me/v2/bot/message/push")
     request = Net::HTTP::Post.new(uri)
     request["Content-Type"] = "application/json"
-    request["Authorization"] = "Bearer ENV['LINE_CHANNEL_TOKEN']"
+    request["Authorization"] = "Bearer #{@access_token}"
     request.body = JSON.dump({
       "to" => @line_user_id,
       "messages" => [
@@ -23,6 +24,8 @@ class LineNotificationService
       ]
     })
 
+    Rails.logger.info "Sending LINE message to #{@line_user_id} with message: #{message}"
+
     req_options = {
       use_ssl: uri.scheme == "https"
     }
@@ -30,6 +33,8 @@ class LineNotificationService
     response = Net::HTTP.start(uri.hostname, uri.port, req_options) do |http|
       http.request(request)
     end
+
+    Rails.logger.info "Received response: #{response.code} - #{response.body}"
     response
   end
 end
