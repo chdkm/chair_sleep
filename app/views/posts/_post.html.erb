@@ -16,8 +16,10 @@
             <% end %>
           </div>
         <% else %>
-          <%= render 'bookmark_buttons', { post: post } %>
-          <%= render 'like_buttons', { post: post } %>
+          <div class='ms-auto'>
+            <%= render 'bookmark_buttons', { post: post } %>
+            <%= render 'like_buttons', { post: post } %>
+          </div>
           <td>いいね数：<%= post.likes.count %></td>
         <% end %>
       </div>

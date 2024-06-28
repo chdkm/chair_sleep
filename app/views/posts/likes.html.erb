@@ -1,25 +1,16 @@
-<%# Add a container for the post index %>
 <% content_for(:title, t('.title')) %>
 <div class="container mx-auto">
-  <%# Add a heading for the page %>
-  <h1 class="text-3xl font-bold mb-4">いいねランキング一覧</h1>
+  <h1 class="text-3xl pt-4 mb-4 font-bold">いいねランキング一覧</h1>
 
-  <div class="flex justify-center items-center gap-8">
-    <%# Add the new post button %>
-    <div>
-      <%= link_to "新規投稿", new_post_path, class: "px-4 py-2 bg-indigo-500 text-white rounded-md hover:bg-indigo-600" %>
-    </div>
-  </div>
+  <nav class="flex justify-center items-center gap-8">
+    <%= link_to "新規投稿", new_post_path, class: "px-4 py-2 bg-indigo-500 text-white rounded-md hover:bg-indigo-600" %>
+  </nav>
 
   <div class="grid grid-cols-3 gap-4">
-    <div class="col-3">
-      <div class="row">
-        <% if @like_posts.present? %>
-          <%= render @like_posts %>
-        <% else %>
-          <div class="mb-3">掲示板がありません</div>
-        <% end %>
-      </div>
-    </div>
+    <% if @like_posts.present? %>
+      <%= render @like_posts %>
+    <% else %>
+      <div class="mb-3">掲示板がありません</div>
+    <% end %>
   </div>
 </div>
