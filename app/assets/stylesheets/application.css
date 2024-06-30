@@ -1,0 +1,7 @@
+/*
+ *= require_tree .
+ *= require_self
+ */
+
+/* Tailwind CSSとDaisyUIを読み込む */
+@import 'application.tailwind';
