@@ -36,8 +36,13 @@ ja:
       title: 投稿編集
     bookmarks:
       title: ブックマーク一覧
+    likes:
+      title: いいねランキング一覧
   profiles:
     show:
       title: プロフィール
     edit:
       title: プロフィール編集
+  user_settings:
+    edit:
+      title: 通知設定

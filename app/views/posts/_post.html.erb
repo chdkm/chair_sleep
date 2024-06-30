@@ -9,21 +9,23 @@
         <% if current_user.own?(post) %>
           <div class='ms-auto'>
             <%= link_to edit_post_path(post), id: 'button-edit-#{post.id}', class: 'btn btn-primary' do %>
-              <i>edit</i>
+              <i>編集</i>
             <% end %>
             <%= link_to post_path(post), id: 'button-delete-#{post.id}', data: { turbo_method: :delete, turbo_confirm: t('defaults.delete_confirm') } , class: 'btn btn-outline btn-warning' do %>
-              <i>destroy</i>
+              <i>削除</i>
             <% end %>
           </div>
         <% else %>
-          <%= render 'bookmark_buttons', { post: post } %>
-          <%= render 'like_buttons', { post: post } %>
-          <td>いいね数：<%= post.likes.count %></td>
+          <div class='ms-auto'>
+            <%= render 'bookmark_buttons', { post: post } %>
+            <%= render 'like_buttons', { post: post } %>
+          </div>
         <% end %>
       </div>
       <ul class="list-inline">
         <%= post.user.name %>
         <li><%= l post.created_at, format: :short %></li>
+        <li>いいね数：<%= post.likes.count %></li>
       </ul>
       <div class="flex justify-content-center mt-3"">
         <% post.item_tags.each do |item_tag| %>
