@@ -6,11 +6,11 @@
     
 
     <nav class="text-right top-0 left-3">
-      <button id="menuBtn" type="button" class="fixed top-3 right-4 z-10 flex h-14 w-14 items-center justify-center rounded-md border-none bg-sky-950 text-customBeige" >
+      <button id="menuBtn" type="button" class="fixed top-3 right-4 z-50 flex h-14 w-14 items-center justify-center rounded-md border-none bg-sky-950 text-customBeige" >
         <i id="menuIconBars" class="fa-solid fa-bars fa-2x"></i>
         <i id="menuIconX" class="fa-solid fa-xmark fa-2x hidden"></i>
       </button>
-      <ul id="menu" class="fixed top-0 left-0 z-0 flex w-full translate-x-full flex-col bg-customBlue text-center font-bold text-customBeige transition-all ease-linear">
+      <ul id="menu" class="fixed top-0 left-0 z-40 flex w-full translate-x-full flex-col bg-customBlue text-center font-bold text-customBeige transition-all ease-linear">
         <%= link_to "ブックマーク一覧", bookmarks_posts_path, class: "hover:text-gray-300" %>
         <%= link_to "いいねランキング一覧", likes_posts_path, class: "hover:text-gray-300" %>
         <%= link_to "プロフィール設定", profile_path, class: "hover:text-gray-300" %>
@@ -23,9 +23,16 @@
 </header>
 
 <script>
-  menuBtn.addEventListener('click', () => {
-    menu.classList.toggle('translate-x-full');
-    menuIconBars.classList.toggle('hidden');
-    menuIconX.classList.toggle('hidden');
+  document.addEventListener('DOMContentLoaded', () => {
+    const menuBtn = document.getElementById('menuBtn');
+    const menu = document.getElementById('menu');
+    const menuIconBars = document.getElementById('menuIconBars');
+    const menuIconX = document.getElementById('menuIconX');
+
+    menuBtn.addEventListener('click', () => {
+      menu.classList.toggle('translate-x-full');
+      menuIconBars.classList.toggle('hidden');
+      menuIconX.classList.toggle('hidden');
+    });
   });
 </script>
