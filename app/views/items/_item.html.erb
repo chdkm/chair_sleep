@@ -1,8 +1,12 @@
 <% @items.first(10).each do |item| %>
-  <div class="list-group">
-    <%= image_tag (item['mediumImageUrls'][0]) %>
-    <%= link_to item.name, "#{item.url}" %>
-    <%= number_with_delimiter(item.price) %>円
-    <%= link_to '選択', select_items_path(post_id: @post_id, item_code: item['itemCode']), method: :post, remote: true %>
+  <div class="list-group bg-white p-4 rounded-lg shadow-md flex flex-col items-start space-y-4 mb-4">
+    <%= image_tag item['mediumImageUrls'][0], class: "w-12 h-12 rounded-md" %>
+    <div class="flex flex-col space-y-2">
+      <%= link_to item.name, item.url, class: "text-blue-500 hover:text-blue-700 text-lg font-semibold" %>
+      <div class="text-gray-700 text-sm">
+        <%= number_with_delimiter(item.price) %>円
+      </div>
+      <%= link_to '選択', select_items_path(post_id: @post_id, item_code: item['itemCode']), method: :post, remote: true, class: "bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition duration-200" %>
+    </div>
   </div>
 <% end %>
