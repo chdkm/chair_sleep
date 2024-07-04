@@ -1,9 +1,13 @@
 <div class="row mb-3" id="comment-form">
-  <div class="item-center">
-    <%= form_with model: comment, url: post_comments_path(post) do |f| %>
-      <%= f.label "コメント" %>
-      <%= f.text_area :content, class: "form-control mb-3 textarea textarea-secondary textarea-sm w-full max-w-xs", row: "4", placeholder: Comment.human_attribute_name(:content), data: { controller: "textarea" } %>
-      <%= f.submit "post", class: "bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600" %>
+  <div class="flex justify-center">
+    <%= form_with model: comment, url: post_comments_path(post), class: "space-y-4 w-full max-w-md" do |f| %>
+      <div>
+        <%= f.label :content, "コメント", class: "block text-xl font-semibold text-gray-700" %>
+        <%= f.text_area :content, class: "form-control mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500", rows: 4, placeholder: Comment.human_attribute_name(:content), data: { controller: "textarea" } %>
+      </div>
+      <div>
+        <%= f.submit "投稿", class: "bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition duration-200" %>
+      </div>
     <% end %>
   </div>
 </div>
