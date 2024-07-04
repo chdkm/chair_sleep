@@ -3,17 +3,17 @@
   <h1 class="text-3xl pt-4 mb-4 font-bold">通知設定</h1>
 
   <% if current_user.line_user? %>
-    <%= form_with model: @user_setting, url: user_setting_path, method: :put do |form| %>
-      <div class="field">
-        <%= form.label :line_notification, "LINE通知を受け取る" %>
-        <%= form.check_box :line_notification, { checked: @user_setting.line_notification } %>
+    <%= form_with model: @user_setting, url: user_setting_path, method: :put, class: "space-y-4" do |form| %>
+      <div class="field flex items-center">
+        <%= form.check_box :line_notification, { checked: @user_setting.line_notification, class: "form-checkbox h-5 w-5 text-blue-600" } %>
+        <%= form.label :line_notification, "LINE通知を受け取る", class: "ml-2 text-sm font-medium text-gray-700" %>
       </div>
 
       <div class="actions">
-        <%= form.submit "更新", class: "bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600"%>
+        <%= form.submit "更新", class: "bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition duration-200" %>
       </div>
     <% end %>
   <% else %>
-    <p>LINEログインユーザーのみ通知設定が可能です。</p>
+    <p class="text-black-500">LINEログインユーザーのみ通知設定が可能です。</p>
   <% end %>
 </div>

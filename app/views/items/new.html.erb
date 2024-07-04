@@ -1,13 +1,15 @@
-<h1 class="text-3xl pt-4 mb-4 font-bold">使用グッズ登録ページ</h1>
-<div class="search-box">
-  <%= form_with url: new_item_path(post_id: params[:post_id]), method: :get, local: true do |f| %>
-    <div class="form-group">
-      <%= hidden_field_tag :post_id, params[:post_id] %>
-      <%= f.text_field :keyword, value: params[:keyword], class: "form-control" %>
-      <%= f.submit '製品名を検索', class: "form-control btn btn-success m-2 h-2" %>
-    </div>
-  <% end %>
-  <% if @items.present? %>
-    <%= render 'items/item', items: @items, post_id: params[:post_id] %>
-  <% end %>
+<div class="container mx-auto">
+  <h1 class="text-3xl pt-4 mb-4 font-bold">使用グッズ登録ページ</h1>
+  <div class="search-box p-4 bg-gray-100 rounded-lg">
+    <%= form_with url: new_item_path(post_id: params[:post_id]), method: :get, local: true do |f| %>
+      <div class="form-group flex flex-col space-y-4">
+        <%= hidden_field_tag :post_id, params[:post_id] %>
+        <%= f.text_field :keyword, value: params[:keyword], placeholder: "製品名を入力", class: "form-control p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" %>
+        <%= f.submit '製品名を検索', class: "form-control btn bg-green-500 text-white p-2 rounded-md hover:bg-green-600 transition duration-200" %>
+      </div>
+    <% end %>
+    <% if @items.present? %>
+      <%= render 'items/item', items: @items, post_id: params[:post_id] %>
+    <% end %>
+  </div>
 </div>
