@@ -91,10 +91,10 @@
     <% if current_user.own?(@post) %>
       <div class='flex justify-center gap-4'>
         <%= link_to edit_post_path(@post), id: "button-edit-#{@post.id}", class: 'btn btn-primary float-right' do %>
-          <i>edit</i>
+          <i>編集</i>
         <% end %>
         <%= link_to post_path(@post), id: "button-delete-#{@post.id}", class: 'btn btn-outline btn-warning float-right', data: { turbo_method: :delete, turbo_confirm: t('defaults.delete_confirm') } do %>
-          <i>destroy</i>
+          <i>削除</i>
         <% end %>
       </div>
     <% end %>

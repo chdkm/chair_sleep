@@ -13,4 +13,17 @@ module.exports = {
   daisyui: {
     themes: ["retro"],
   },
+
+  theme: {
+    extend: {
+      colors: {
+        customBlue: {
+          DEFAULT: '#0F2D49',
+        },
+        customBeige: {
+          DEFAULT: '#CCBF90',
+        },
+      },
+    },
+  },
 }
