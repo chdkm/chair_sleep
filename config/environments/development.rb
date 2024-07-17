@@ -86,7 +86,7 @@ Rails.application.configure do
   # Raise error when a before_action's only/except options reference missing actions
   config.action_controller.raise_on_missing_callback_actions = true
 
-  config.hosts << "9bf2-240b-250-3380-8600-c9fa-bb6c-7739-8985.ngrok-free.app"
+  config.hosts << "8127-240b-250-3380-8600-3914-ff2-e69f-1b24.ngrok-free.app"
 
   # Turboのデバッグログを有効にする
   config.log_tags = [ :request_id, :remote_ip, :request_method ]
