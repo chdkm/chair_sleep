@@ -1,8 +1,8 @@
 <% content_for(:title, t('.title')) %>
 <div class="container mx-auto h-screen">
   <h1 class="text-3xl pt-4 mb-4 font-bold">通知設定</h1>
-  <h2 class="mb-4 text-center md:text-xl text-red-500 md:mb-4 ">通知をONにすると自身の投稿にコメントされた時にLINE通知が届きます！</h2>
-  <p class="mb-4 text-center text-sm md:text-xl text-red-500 md:mb-4 ">※LINEログインユーザーのみ通知設定が可能です。</p>
+  <h2 class="mb-4 text-center md:text-xl text-blue-500 md:mb-4 ">通知をONにすると自身の投稿にコメントされた時にLINE通知が届きます！</h2>
+  <p class="mb-4 text-center text-sm md:text-xl text-blue-500 md:mb-4 ">※LINEログインユーザーのみ通知設定が可能です。</p>
   <% if current_user.line_user? %>
     <%= form_with model: @user_setting, url: user_setting_path, method: :put, class: "space-y-4" do |form| %>
       <div class="field flex items-center">
