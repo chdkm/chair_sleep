@@ -11,8 +11,8 @@ class CommentsController < ApplicationController
       end
     else
       respond_to do |format|
-        format.turbo_stream { render :new }
-        format.html { render :new }
+        format.turbo_stream { redirect_to @post }
+        format.html { redirect_to @post }
       end
     end
   end
