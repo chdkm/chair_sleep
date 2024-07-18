@@ -1,8 +1,8 @@
 <% content_for(:title, t('.title')) %>
-<div class="container mx-auto">
-  <h1 class="text-3xl pt-4 mb-4 font-bold">投稿一覧</h1>
+<div class="container mx-auto px-4"">
+  <h1 class="text-3xl pt-4 mb-4 font-bold">ブックマーク一覧</h1>
 
-  <nav class="flex justify-center items-center gap-8">
+  <nav class="flex flex-col md:flex-row justify-center items-center gap-8 mb-4">
     <%= render 'search_form', q: @q, url: bookmarks_posts_path %>
     <div>
       <%= link_to "新規投稿", new_post_path, class: "px-4 py-2 bg-indigo-500 text-white rounded-md hover:bg-indigo-600" %>
@@ -13,11 +13,11 @@
     <h2 class="text-center">検索結果: <%= @bookmark_posts.count %>件</h2>
   <% end %>
 
-  <div class="grid grid-cols-3 gap-4">
+  <div class="mt-4 flex justify-center flex-wrap -mx-4">
     <% if @bookmark_posts.present? %>
       <%= render @bookmark_posts %>
     <% else %>
-      <div class="mb-3">掲示板がありません</div>
+      <div class="mb-3">ブックマークした投稿がありません</div>
     <% end %>
   </div>
 </div>
