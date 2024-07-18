@@ -13,8 +13,9 @@ class UserSettingsController < ApplicationController
     if current_user.line_user?
       @user_setting = current_user.user_setting || current_user.build_user_setting
       if @user_setting.update(user_setting_params)
-        redirect_to edit_user_setting_path, notice: '設定が更新されました。'
+        redirect_to edit_user_setting_path, success: t('defaults.flash_message.updated', item: "通知設定")
       else
+        flash.now['danger'] = t('defaults.flash_message.not_updated', item: "通知設定")
         render :edit
       end
     else

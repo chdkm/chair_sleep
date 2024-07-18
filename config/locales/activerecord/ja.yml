@@ -2,9 +2,16 @@ ja:
   activerecord:
     models:
       user: ユーザー
+      post: 投稿
+      profile: プロフィール
     attributes:
       user:
         email: メールアドレス
         name: ユーザー名
         password: パスワード
         password_confirmation: パスワード確認
+      post:
+        title: タイトル
+        content: 仮眠を行うまでの準備
+        prepare: 仮眠の寝方
+        care: 仮眠後のアクション
