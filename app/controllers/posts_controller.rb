@@ -16,8 +16,19 @@ class PostsController < ApplicationController
     end
   end
 
+  def show
+    @post = Post.find(params[:id])
+    @items = @post.items
+    @comment = Comment.new
+    @comments = @post.comments.includes(:user).order(created_at: :desc)
+  end
+
   def new
     @post = Post.new
+  end
+
+  def edit
+    @post = current_user.posts.find(params[:id])
   end
 
   def create
@@ -28,17 +39,6 @@ class PostsController < ApplicationController
       flash.now[:danger] = t('defaults.flash_message.not_created', item: Post.model_name.human)
       render :new, status: :unprocessable_entity
     end
-  end
-
-  def show
-    @post = Post.find(params[:id])
-    @items = @post.items
-    @comment = Comment.new
-    @comments = @post.comments.includes(:user).order(created_at: :desc)
-  end
-
-  def edit
-    @post = current_user.posts.find(params[:id])
   end
 
   def update
@@ -65,7 +65,7 @@ class PostsController < ApplicationController
   end
 
   def likes
-    @like_posts = Post.all.includes(:user, :item_tags, :likes).sort_by { |post| -post.liked_users.size }
+    @like_posts = Post.includes(:user, :item_tags, :likes).sort_by { |post| -post.liked_users.size }
   end
 
   private

@@ -220,8 +220,8 @@ Rails.application.config.sorcery.configure do |config|
   # config.salesforce.user_info_mapping = {:email => "email"}
 
 
-  config.line.key = ENV['LINE_CHANNEL_ID']
-  config.line.secret = ENV['LINE_CHANNEL_SECRET']
+  config.line.key = ENV.fetch['LINE_CHANNEL_ID']
+  config.line.secret = ENV.fetch['LINE_CHANNEL_SECRET']
   config.line.callback_url = Settings.sorcery[:line_callback_url]
   config.line.scope = 'profile openid email'
   config.line.bot_prompt = "aggressive"
