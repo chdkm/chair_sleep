@@ -2,7 +2,7 @@ class LineNotificationService
   def initialize(user)
     @user = user
     @line_user_id = user.line_user_id
-    @access_token = ENV['LINE_CHANNEL_TOKEN']
+    @access_token = ENV.fetch['LINE_CHANNEL_TOKEN']
   end
 
   def self.send_line_message(user, message)
