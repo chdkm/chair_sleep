@@ -116,4 +116,4 @@ MVPリリース時に作成しておきたいもの
 Figma：https://www.figma.com/file/aNBLcQ5vScCC4GWuGBa7gz/chair_sleep?type=design&node-id=0-1&mode=design&t=rIJoHCkASqtVKoCE-0
 
 ## ER図
-(https://lucid.app/publicSegments/view/2d7be760-f6ca-4248-8f5b-fb5ebca502a1/image.jpeg)
+[(https://lucid.app/publicSegments/view/2d7be760-f6ca-4248-8f5b-fb5ebca502a1/image.jpeg)](https://i.gyazo.com/77fca8d510054d6d2940e2451c3c3976.png)
