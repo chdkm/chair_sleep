@@ -109,7 +109,7 @@ MVPリリース時に作成しておきたいもの
  - Docker
  - Tailwind css
  - PostgreSQL
- - Fly.io
+ - Heroku
  - LINE Messaging API
 
 ## 画面遷移図
