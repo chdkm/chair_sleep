@@ -40,3 +40,5 @@
 /node_modules
 
 /config/certs/*
+
+.DS_Store
