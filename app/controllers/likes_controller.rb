@@ -6,8 +6,8 @@ class LikesController < ApplicationController
   end
 
   def destroy
-    post = current_user.likes.find(params[:id]).post
-    current_user.unlike(post)
+    like = current_user.likes.includes(:post).find(params[:id])
+    current_user.unlike(like.post)
     redirect_to posts_path, status: :see_other
   end
 end

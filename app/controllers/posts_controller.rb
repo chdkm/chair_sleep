@@ -6,7 +6,7 @@ class PostsController < ApplicationController
               Post.all
             end
     @q = Post.ransack(params[:q])
-    @posts = @q.result(distinct: true).includes(:user, :item_tags, :likes).order(created_at: :desc).page(params[:page])
+    @posts = @q.result(distinct: true).includes(:user, :item_tags).order(created_at: :desc).page(params[:page])
   end
 
   def search_tag
@@ -61,11 +61,11 @@ class PostsController < ApplicationController
 
   def bookmarks
     @q = current_user.bookmarks_posts.ransack(params[:q])
-    @bookmark_posts = @q.result(distinct: true).includes(:user, :item_tags, :likes).order(created_at: :desc).page(params[:page])
+    @bookmark_posts = @q.result(distinct: true).includes(:user, :item_tags).order(created_at: :desc).page(params[:page])
   end
 
   def likes
-    @like_posts = Post.includes(:user, :item_tags, :likes).sort_by { |post| -post.liked_users.size }
+    @like_posts = Post.includes(:user, :item_tags).order(likes_count: :desc)
   end
 
   private
