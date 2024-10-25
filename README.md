@@ -101,9 +101,9 @@ MVPリリース時に作成しておきたいもの
  - いいねランキング機能
  - 管理者機能
  - コメントに対するLINE通知機能
- - 楽天APIを使用したグッズ情報登録機能（追加）
+ - 楽天APIを使用したグッズ情報登録機能
 
-## 機能の実装方針予定
+## 機能の実装方針
  - Javascript
  - Ruby on Rails
  - Docker
@@ -111,6 +111,7 @@ MVPリリース時に作成しておきたいもの
  - PostgreSQL
  - Heroku
  - LINE Messaging API
+ - 楽天API
 
 ## 画面遷移図
 Figma：https://www.figma.com/file/aNBLcQ5vScCC4GWuGBa7gz/chair_sleep?type=design&node-id=0-1&mode=design&t=rIJoHCkASqtVKoCE-0
